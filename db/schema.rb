@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(version: 2024_03_07_085825) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "quantity"
-    t.integer "total_quantity"
-    t.decimal "total_price"
+    t.integer "quantity", default: 0
+    t.integer "total_quantity", default: 0
+    t.decimal "total_price", default: "0.0"
   end
 
   create_table "orders", force: :cascade do |t|
