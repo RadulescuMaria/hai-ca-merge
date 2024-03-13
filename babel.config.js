@@ -77,7 +77,9 @@ module.exports = function(api) {
         {
           async: false
         }
-      ]
+      ],
+      // Include the optional chaining plugin
+      '@babel/plugin-proposal-optional-chaining'
     ].filter(Boolean)
   }
 }
