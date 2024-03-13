@@ -1,8 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import classes from "./MealItem.module.css";
 import MealForm from "./MealForm";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../store/cart-slice";
 
 const MealItem = (props) => {
+  const dispatch = useDispatch();
+
+  const addToCartHandler = (enteredAmount) => {
+    dispatch(
+      cartActions.addToCart(props.name, props.price, props.id, enteredAmount)
+    );
+  };
 
   return (
     <li className={classes.meal}>
@@ -12,7 +21,7 @@ const MealItem = (props) => {
       </div>
       <div className={classes.price}>${props.price}</div>
       <div>
-        <MealForm id={props.id}/>
+        <MealForm id={props.id} onAddToCart={addToCartHandler} />
       </div>
     </li>
   );

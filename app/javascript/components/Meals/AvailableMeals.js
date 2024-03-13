@@ -4,6 +4,9 @@ import Card from "../UI/Card";
 import MealItem from "./MealItem";
 
 const AvailableMeals = (props) => {
+  const addToCartHandler = (enteredAmount) => {
+    props.onAddToCart(enteredAmount)
+  }
   const mealsList = props.meals.map((meal) => (
     <MealItem
       id={meal.id}
@@ -11,6 +14,7 @@ const AvailableMeals = (props) => {
       name={meal.name}
       description={meal.description}
       price={meal.price}
+      onAdd={addToCartHandler}
     />
   ));
   return (

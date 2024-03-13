@@ -7,8 +7,14 @@ const MealItemForm = (props) => {
 
   const amountInputRef = useRef();
 
+  const onSubmitHandler = (event) => {
+    event.preventDefault();
+    const enteredAmount = amountInputRef.current.value
+    props.onAddToCart(enteredAmount)
+  }
+
   return (
-    <form className={classes.form}>
+    <form className={classes.form} onSubmit={onSubmitHandler}>
       <div>
         <Input
           ref={amountInputRef}
